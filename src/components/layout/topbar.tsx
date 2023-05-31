@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Icon from "../../assets/images/reads_logotype.png";
+import ActionButton from '../action-button';
 
 const Topbar = () => {
   return (
@@ -35,8 +36,8 @@ const Topbar = () => {
           </ul>
           {/* right menu */}
           <div className='py-2 flex flex-row pl-5'>
-            <button className='mr-1 py-2 rounded-full bg-white text-black w-[100px]'>PUBLISH</button>
-            <button className='ml-1 py-2 rounded-full bg-white text-black w-[100px]'>LOGIN</button>
+            <ActionButton buttonText='PUBLISH' type="outlined" />
+            <ActionButton buttonText='LOGIN' type="contained" />
           </div>
         </div>
       </div>

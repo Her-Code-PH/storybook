@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority"
 import { FC } from "react";
 
 const ButtonVariants = cva(
-  'py-2 rounded-full text-sm w-[100px]',
+  'mx-1 py-2 rounded-full text-sm w-[100px] last:mr-0',
   {
     variants: {
       type: {
