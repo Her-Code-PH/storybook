@@ -1,3 +1,4 @@
+import Topbar from '@/components/layout'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className='flex min-h-screen w-screen'>
           <div className='w-full'>
+            <Topbar />
             {children}
           </div>
         </main>
