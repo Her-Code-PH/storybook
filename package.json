@@ -17,7 +17,11 @@
     "autoprefixer": "10.4.14",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "firebase": "^9.22.1",
+    "firebase-admin": "^11.9.0",
+    "js-cookie": "^3.0.5",
     "next": "13.4.4",
+    "next-firebase-auth": "^1.0.0-canary.22",
     "postcss": "8.4.24",
     "prettier": "^2.8.8",
     "react": "18.2.0",
@@ -38,6 +42,7 @@
     "@storybook/testing-library": "^0.1.0",
     "babel-loader": "^8.3.0",
     "eslint-plugin-storybook": "^0.6.12",
+    "next-auth": "^4.22.1",
     "storybook": "^7.0.9"
   }
 }
