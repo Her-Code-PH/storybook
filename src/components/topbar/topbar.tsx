@@ -6,7 +6,7 @@ import ActionButton from '../action-button/action-button';
 
 const Topbar = () => {
   return (
-    <div className="flex h-[100px] w-full bg-gray-50 sticky top-0">
+    <div className="flex h-[100px] w-full bg-slate-50 dark:bg-black sticky top-0">
       {/* Desktop Topbar */}
       <div className="md:px-10 md:py-5 xs:px-2 xs:py-2 w-full flex justify-between">
         {/* logo */}
