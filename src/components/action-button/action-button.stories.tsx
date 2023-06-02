@@ -2,7 +2,6 @@ import type { Meta, StoryFn, StoryObj } from "@storybook/react";
 import ActionButton  from "./action-button";
 
 export default {
-  title: 'Reads/ActionButton',
   component: ActionButton,
   // argTypes: {},
   // args: {},
