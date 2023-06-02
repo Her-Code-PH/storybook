@@ -9,7 +9,7 @@ const ButtonVariants = cva(
     variants: {
       type: {
         outlined: 'border-[1px] border-[#4B8078] text-[#4B8078]',
-        contained: 'bg-[#4B8078] text-white hover:bg-slate-50 hover:text-[#4B8078]'
+        contained: 'bg-[#4B8078] text-white'
       }
     },
     defaultVariants: {
