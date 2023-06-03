@@ -1,21 +1,44 @@
+'use client'
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'
+import { signIn } from '@/firebase/auth';
+
 const Login = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const router = useRouter()
+
+  const handleForm = async (event: any) => {
+    event.preventDefault()
+
+    const { result, error } = await signIn(email, password);
+
+    if (error) {
+      return console.log(error)
+    }
+
+    // else successful
+    console.log(result)
+    return router.push("/dashboard/publish")
+  }
   return (
-    <div className='px-10 flex flex-col items-center mr-auto'>
-      {/* <FirebaseAuth /> */}
-      <button
-        className="bg-[#DB4437] text-white hover:bg-slate-50 w-[250px] my-2 mx-1 py-3 rounded-full flex align-center justify-center last:mr-0 transition hover:-translate-y-1 hover:scale-100 hover:text-black">
-        Continue with Google
-      </button>
-
-      <button className="bg-black text-white hover:bg-slate-50 w-[250px] my-2 mx-1 py-3 rounded-full flex align-center justify-center last:mr-0 transition hover:-translate-y-1 hover:scale-100 hover:text-black">
-        Continue with Github
-      </button>
-
-      <button className="bg-black text-white hover:bg-slate-50 w-[250px] my-2 mx-1 py-3 rounded-full flex align-center justify-center last:mr-0 transition hover:-translate-y-1 hover:scale-100 hover:text-black">
-        Continue with Apple
-      </button>
+    <div className="wrapper">
+      <div className="form-wrapper">
+        <h1 className="mt-60 mb-30">Sign up</h1>
+        <form onSubmit={handleForm} className="form">
+          <label htmlFor="email">
+            <p>Email</p>
+            <input onChange={(e) => setEmail(e.target.value)} required type="email" name="email" id="email" placeholder="example@mail.com" />
+          </label>
+          <label htmlFor="password">
+            <p>Password</p>
+            <input onChange={(e) => setPassword(e.target.value)} required type="password" name="password" id="password" placeholder="password" />
+          </label>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
     </div>
   );
 }
- 
+
 export default Login;
