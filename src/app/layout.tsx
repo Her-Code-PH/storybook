@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className='flex min-h-screen'>
           <div className='w-full'>
-            <Topbar />
+            <Topbar user={} onLogin={} onLogout={} />
             {children}
           </div>
         </main>
