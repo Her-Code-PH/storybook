@@ -22,7 +22,7 @@ const useUser = () => {
           removeUserCookie();
           router.push("/auth");
       } catch (e) {
-          console.log(e.message);
+        //   console.log(e.message);
       }
   }
 
@@ -33,11 +33,11 @@ const useUser = () => {
       const cancelAuthListener = auth.onIdTokenChanged((user) => {
           if (user) {
               const userData = mapUserData(user)
-              setUserCookie(userData)
-              setUser(userData)
+            //   setUserCookie(userData)
+            //   setUser(userData)
           } else {
               removeUserCookie()
-              setUser()
+            //   setUser()
           }
       })
 
