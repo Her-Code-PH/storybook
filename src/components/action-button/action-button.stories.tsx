@@ -1,24 +1,25 @@
-import type { Meta, StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import ActionButton  from "./action-button";
 
-export default {
-  component: ActionButton,
-  // argTypes: {},
-  // args: {},
-} as Meta<typeof ActionButton>;
-
-const Template: StoryObj<typeof ActionButton> = (args: any) => <ActionButton {...args} />
-
-export const Outlined = Template.bind({});
-Outlined.args = {
-  buttonText: 'Outlined Button',
-  type: 'outlined',
-  href: "/"
+const meta: Meta<typeof ActionButton> = {
+  component: ActionButton
 }
 
-export const Contained = Template.bind({});
-Contained.args = {
-  buttonText: 'Contained Button',
-  type: 'contained',
-  href: "/"
-}
+export default meta;
+type Story = StoryObj<typeof ActionButton>;
+
+export const Outlined: Story = {
+  args: {
+    buttonText: 'Outlined Button',
+    type: 'outlined',
+    href: '/'
+  },
+};
+
+export const Contained: Story = {
+  args: {
+    buttonText: 'Contained Button',
+    type: 'contained',
+    href: '/'
+  },
+};
