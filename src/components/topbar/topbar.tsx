@@ -10,8 +10,8 @@ type User = {
 
 interface TopbarProps {
   user?: User
-  onLogin: () => void;
-  onLogout: () => void;
+  onLogin?: () => void;
+  onLogout?: () => void;
 }
 
 const Topbar = ({
