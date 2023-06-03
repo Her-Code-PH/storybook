@@ -7,8 +7,6 @@ import {
   getAuth
 } from "firebase/auth";
 import { initFirebase } from "@/firebase/app";
-import { mapUserData } from "@/firebase/mapUserData";
-import { setUserCookie } from "@/firebase/useUserCookies";
 
 initFirebase();
 const auth = getAuth()
@@ -26,12 +24,12 @@ const firebaseAuthConfig = {
   ],
   signInSuccessUrl: '/',
   credentialHelper: 'none',
-  callbacks: {
-  signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
-      const userData = mapUserData(user)
-      setUserCookie(userData)
-    },
-  },
+  // callbacks: {
+  // signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
+  //     const userData = mapUserData(user)
+  //     setUserCookie(userData)
+  //   },
+  // },
 }
 
 const FirebaseAuth = () => {
