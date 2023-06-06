@@ -22,7 +22,7 @@ const Topbar = ({
   return (
     <>
       {/* Desktop */}
-      <div className="flex justify-between px-10 py-5 items-center">
+      <div className="flex justify-between px-10 py-5 items-center border-[1px] border-slate-100">
         <div className='h-[32px] flex items-center'>
           <Image
             src={Icon}
