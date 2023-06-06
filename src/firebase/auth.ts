@@ -1,15 +1,19 @@
 import { app } from './app'
 import {
-  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
+  GoogleAuthProvider,
+  OAuthProvider,
+  reauthenticateWithPopup,
   signInWithEmailAndPassword,
-  signInWithPopup
+  signInWithPopup,
 } from "firebase/auth";
 
 const googleProvider = new GoogleAuthProvider();
+const appleProvider = new OAuthProvider('apple.com')
 
 const auth = getAuth(app);
+const currentUser = auth.currentUser || null
 
 export const signUp = async (email: string, password: string) => {
   let result = null,
@@ -33,16 +37,50 @@ export const signIn = async (email: string, password: string) => {
   return { result, error };
 }
 
+export const appleSignIn = async () => {
+  let result;
+  let error;
+
+  if (currentUser) {
+    result = await reauthenticateWithPopup(currentUser, appleProvider)
+      .then((res) => {
+        const user = res.user;
+        const credential = OAuthProvider.credentialFromResult(res);
+        const accessToken = credential?.accessToken;
+        const idToken = credential?.idToken;
+        console.log(auth)
+
+        return result = res
+      })
+      .catch((err) => {
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        const email = err.customData.email;
+        // The credential that was used.
+        const credential = OAuthProvider.credentialFromError(err);
+
+        return error = err
+      })
+  }
+  return { result, error }
+}
+
 export const googleSignIn = async () => {
-  let result = null,
-    error = null;
+  let result;
+  let error;
   try {
     result = await signInWithPopup(auth, googleProvider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential?.accessToken;
-      const user = result.user;
-    })
+      .then((res) => {
+        const credential = GoogleAuthProvider.credentialFromResult(res);
+        const token = credential?.accessToken;
+        const user = res.user;
+        console.log(user)
+        result = {
+          user,
+          token
+        }
+        return result;
+      })
   }
   catch (e) {
     error = e;

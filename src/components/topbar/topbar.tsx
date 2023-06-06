@@ -55,7 +55,7 @@ const Topbar = ({
           />
         </div>
         <div className='lg:hidden flex'>
-          
+
         </div>
       </div>
     </>
