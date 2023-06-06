@@ -7,7 +7,7 @@ import M4 from "../assets/images/mockup4.png";
 
 const Home = () => {
   return (
-    <div className="mx-10 mt-10">
+    <div className="">
       <div className="hero-section h-[400px] rounded border-[1px] border-[#4B8078]"></div>
       <div className="mt-10 mb-5  flex justify-between">
         <div className='text-[#4B8078] justify-center h-full uppercase px-5'>

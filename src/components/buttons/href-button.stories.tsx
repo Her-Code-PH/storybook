@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ActionButton  from "./action-button";
+import HrefButton from "./href-button";
 
-const meta: Meta<typeof ActionButton> = {
-  component: ActionButton
+const meta: Meta<typeof HrefButton> = {
+  component: HrefButton
 }
 
 export default meta;
-type Story = StoryObj<typeof ActionButton>;
+type Story = StoryObj<typeof HrefButton>;
 
 export const Outlined: Story = {
   args: {
@@ -20,6 +20,14 @@ export const Contained: Story = {
   args: {
     buttonText: 'Contained Button',
     type: 'contained',
+    href: '/'
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    buttonText: 'Ghost Button',
+    type: 'text',
     href: '/'
   },
 };
