@@ -18,7 +18,6 @@ const Signup = () => {
     }
 
     // else successful
-    console.log(result)
     return router.push("/login")
   }
 

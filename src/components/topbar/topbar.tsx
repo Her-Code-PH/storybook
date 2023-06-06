@@ -1,8 +1,8 @@
-'use client'
+// 'use client'
 import Image from 'next/image';
 import Link from 'next/link';
-import Icon from "../../assets/images/reads_logotype.png";
-import ActionButton from '../action-button/action-button';
+import Icon from "../../assets/images/icons/reads_ico.svg";
+import HrefButton from '../buttons';
 
 type User = {
   name: string;
@@ -20,43 +20,45 @@ const Topbar = ({
   onLogout
 }: TopbarProps) => {
   return (
-    <div className="flex h-[100px] w-full bg-white dark:bg-black sticky top-0">
-      {/* Desktop Topbar */}
-      <div className="md:px-10 md:py-5 xs:px-2 xs:py-2 w-full flex justify-between">
-        {/* logo */}
-        <div className="logo-container">
+    <>
+      {/* Desktop */}
+      <div className="flex justify-between px-10 py-5 items-center">
+        <div className='h-[32px] flex items-center'>
           <Image
             src={Icon}
-            alt="reads_logotype"
-            className='object-cover w-auto h-full transition hover:-translate-y-1 hover:scale-100 cursor-pointer max-h-16'
-            placeholder='empty' // {empty} | {blur}
-            priority={false}
+            alt='reads_logotype'
+            className='h-full w-auto mr-10'
+          />
+          <div className='lg:flex hidden'>
+            <HrefButton
+              href='/'
+              buttonText='HOME'
+              type='text'
+            />
+            <HrefButton
+              href='/'
+              buttonText='GENRES'
+              type='text'
+            />
+            <HrefButton
+              href='/'
+              buttonText='POPULAR'
+              type='text'
+            />
+          </div>
+        </div>
+        <div className='items-center lg:flex hidden'>
+          <HrefButton
+            href='/login'
+            buttonText='LOGIN'
+            type='outlined'
           />
         </div>
-        <div className="menu-container flex md:flex sm:hidden xs:hidden">
-          {/* left menu */}
-          <div className='flex flex-row items-center justify-center justify-items-center'>
-            <div className='text-[#4B8078] flex flex-col justify-center h-full uppercase px-2 first:pl-0'>
-              <Link href="/">HOME</Link>
-            </div>
-            <div className='text-[#4B8078] flex flex-col justify-center h-full uppercase px-2'>
-              <Link href="/genres">GENRES</Link>
-            </div>
-            <div className='text-[#4B8078] flex flex-col justify-center h-full uppercase px-2'>
-              <Link href="/popular">POPULAR</Link>
-            </div>
-            <div className='text-[#4B8078] flex flex-col justify-center h-full uppercase px-2 last:pr-0'>
-              <Link href="/canvas">CANVAS</Link>
-            </div>
-          </div>
-          {/* right menu */}
-          <div className='py-2 flex flex-row pl-2'>
-            <ActionButton buttonText='PUBLISH' type="outlined" href='/dashboard/publish' />
-            <ActionButton buttonText={user ? 'LOGOUT' : 'LOGIN'} type="contained" href='/login' />
-          </div>
+        <div className='lg:hidden flex'>
+          
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

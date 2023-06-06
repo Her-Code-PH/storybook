@@ -19,13 +19,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const initFirebase = () => {
-  if (typeof window !== undefined) {
-    initializeApp(firebaseConfig);
-    console.log("Firebase has been init successfully");
-  }
-}
-
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 

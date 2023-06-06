@@ -20,7 +20,9 @@ export default function RootLayout({
         <main className='flex min-h-screen'>
           <div className='w-full'>
             <Topbar />
-            {children}
+            <div className='flex mx-10 mt-10'>
+              {children}
+            </div>
           </div>
         </main>
       </body>
